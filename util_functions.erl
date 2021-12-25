@@ -3,6 +3,7 @@
 -export([reverse_list/1]).
 -export([convert_list_to_binary/1]).
 -export([starts_with/2]).
+-export([starts_with_another/2]).
 
 factorial(0) -> 1;
 factorial(N) -> N * factorial(N-1).
@@ -31,3 +32,9 @@ starts_with(SubString, String) ->
         _ -> false
     end.
     
+starts_with_another(SubString, String) ->
+    Left = string:left(String, length(SubString)),
+    if 
+        Left =:= SubString -> true;
+        true -> false
+    end.
